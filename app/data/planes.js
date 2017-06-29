@@ -1,3 +1,10 @@
+var planesArray = {
+        mfg: "Mooney",
+        type: "1-4",
+        specs: "1-2",
+    };
+
+/*
 var planesArray = [
     {
         mfg: "Mooney",
@@ -10,5 +17,5 @@ var planesArray = [
         specs: "Pusher Prop"
     }
 ];
-
+*/
 module.exports = planesArray;

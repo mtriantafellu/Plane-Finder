@@ -1,15 +1,18 @@
 var express = require ("express");
-var app = express();
 var bodyParser = require("body-parser");
+var app = express();
+
+var PORT = process.env.PORT || 8080;
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 var routes = require("./app/routing/html.js") (app);
 
 var api = require("./app/routing/api.js");
 
-app.listen(3000, function() {
-    console.log("Server is starting at port 3000");
-
+app.listen(PORT, function() {
+    console.log("App listening on PORT: " + PORT);
 });
