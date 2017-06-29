@@ -1,0 +1,26 @@
+{
+  "name": "plane-finder",
+  "version": "1.0.0",
+  "description": "Week 7 Thursday Assignment",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mtriantafellu/Plane-Finder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mtriantafellu/Plane-Finder/issues"
+  },
+  "homepage": "https://github.com/mtriantafellu/Plane-Finder#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "path": "^0.12.7",
+    "require": "^2.4.20"
+  }
+}

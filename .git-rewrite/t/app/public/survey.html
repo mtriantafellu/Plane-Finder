@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="UTF-8">
     <title>Survey Page</title>
 
+    <!-- link to CSS stylesheet -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
     <!-- link to jQuery -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
 
     <!-- BootStrap CDN -->
     <!-- Latest compiled and minified CSS -->
@@ -19,8 +21,6 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    <!-- link to CSS stylesheet -->
-    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
 
 </head>
 
@@ -35,7 +35,7 @@
         <!-- Jumbotron Header -->
         <div class="col-lg-10 col-lg-offset-1 centerfy">
             <!-- Header and first text -->
-            <div class="jumbotron" style="background-image: url(/public/images/cloud.jpg);">
+            <div class="jumbotron" style="background-image: url(assets/images/cloud.jpg);">
                 <div class="wrapper" id="wrapper">
                     <h1>Plane Finder!</h1>
                     <br>
@@ -56,7 +56,7 @@
                                 <div class="panel-body" style="background: transparent;">
 
                                     <a href="assets/images/mooney2.jpeg" class="thumbnail" style="background: transparent;">
-                                        <img src="/public/images/mooney2.jpeg" alt="Mooney" id="planeImage">insert text here</a>
+                                        <img src="assets/images/mooney2.jpeg" alt="Mooney" id="planeImage">insert text here</a>
                                     <div id="forInfo">
                                         <div>MFG: Mooney</div>
                                         <div>Type: M20</div>
@@ -241,39 +241,39 @@
             console.log("calculate");
             if (fast === 1 && modern === 1) {
                 console.log("you like fast new planes!");
-                $('#planeImage').attr('src', '/public/images/fastNew.jpeg');
+                $('#planeImage').attr('src', 'assets/images/fastNew.jpeg');
 
             } else if (fast === 1 && props === 1) {
                 console.log("you like fast prop planes");
-                $('#planeImage').attr('src', '/public/images/fastProp.jpeg');
+                $('#planeImage').attr('src', 'assets/images/fastProp.jpeg');
 
             }  else if (fast === 1 && turbines === 1 && four === 1) {
                 console.log("you like fast turbine cargo planes");
-                $('#planeImage').attr('src', '/public/images/fastCargo.jpeg');
+                $('#planeImage').attr('src', 'assets/images/fastCargo.jpeg');
 
             }  else if (fast === 1 && turbines === 1) {
                 console.log("you like fast turbine planes");
-                $('#planeImage').attr('src', '/public/images/fastTurbine.jpeg');
+                $('#planeImage').attr('src', 'assets/images/fastTurbine.jpeg');
 
             }   else if (fast === 1 && props === 1 && floats === 1) {
                 console.log("you like fast prop float planes");
-                $('#planeImage').attr('src', '/public/images/fastPropFloat.jpeg');
+                $('#planeImage').attr('src', 'assets/images/fastPropFloat.jpeg');
 
             } else if (slow === 1 && props === 1 && floats === 1) {
                 console.log("you like slow prop float planes");
-                $('#planeImage').attr('src', '/public/images/slowPropFloat.jpeg');
+                $('#planeImage').attr('src', 'assets/images/slowPropFloat.jpeg');
 
             } else if (slow === 1 && props === 1 && Wheels === 1) {
                 console.log("you like slow prop wheeled planes");
-                $('#planeImage').attr('src', '/public/images/slowPropWheels.jpeg');
+                $('#planeImage').attr('src', 'assets/images/slowPropWheels.jpeg');
 
             } else if (slow === 1 && four === 1) {
                 console.log("you like cargo airplanes");
-                $('#planeImage').attr('src', '/public/images/slowCargo.jpeg');
+                $('#planeImage').attr('src', 'assets/images/slowCargo.jpeg');
 
             } else if (slow === 1 && turbine === 1) {
                 console.log("you like slow turbine planes");
-                $('#planeImage').attr('src', '/public/images/slowTurbine.jpeg');
+                $('#planeImage').attr('src', 'assets/images/slowTurbine.jpeg');
 
             }
         });
@@ -282,7 +282,7 @@
         $("#resetBtn").on("click", function(event) {
             event.preventDefault();
 
-            $('#planeImage').attr('src','/public/images/mooney.jpeg');
+            $('#planeImage').attr('src','assets/images/mooney.jpeg');
             fast = 0;
             slow = 0;
             old = 0;
@@ -297,6 +297,21 @@
     };
     run();
 
+    function getPlaneInfo() {
+
+        // Here we get the location of the root page.
+        // We use this instead of explicitly saying the URL is localhost:3001 because the url will change when we deploy.
+        var currentURL = window.location.origin;
+
+        // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+        $.ajax({url: currentURL + "/api", method: "GET"})
+            .done(function (planesData) {
+                console.log("Ajax for Planes")
+                console.log(planesData);
+            });
+    };
+
+    getPlaneInfo();
 
 </script>
 </body>

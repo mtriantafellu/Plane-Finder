@@ -1,0 +1,47 @@
+body {
+    background-image: url(../images/plane2.jpeg);
+    transition: ease .6s;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+.jumbotron {
+	border-radius: 10px;
+	margin: 50px;
+	text-align: center;
+}
+
+.jumbotron h2{
+	font-size: 20px;
+}
+
+#wrapper {
+	background: transparent;
+	color: black;
+}
+
+#container2 {
+	background: transparent;
+	color: black;
+}
+
+.panel2 {
+	background-color: orchid;
+}
+
+.panel2 h2{
+	font-size: 25px;
+	opacity: 1;
+}
+
+.thumbnail {
+	width: 400px;
+	height: 400px;
+	align: center;
+}
+
+.button {
+	align: center;
+}
+

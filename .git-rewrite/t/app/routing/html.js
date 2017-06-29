@@ -9,11 +9,10 @@ module.exports = function(app) {
 
     app.get("/api", function(req, res) {
         res.sendFile(path.join(__dirname + "/../data/planes.js"));
-        console.log("api working");
         res.json(planesArray);
     });
 
-    app.get("/survey", function(req, res) {
+    app.get("/survey+", function(req, res) {
         res.sendFile(path.join(__dirname + "/../public/survey.html"));
     });
 
