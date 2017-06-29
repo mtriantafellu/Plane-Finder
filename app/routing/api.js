@@ -1,24 +1,24 @@
+var planeData = require("../data/planes.js");
+
 module.exports = function (app) {
 
-    var path = require ("path");
-
-    app.get("/location", function (req, res) {
-        var user = {
-            userName: "API",
-            address: "3303"
-        }
-
-        res.json(user);
+    app.get("/api/planes", function(req, res) {
+        res.json(planes);
     });
 
-    app.get("/data", function (req, res) {
-
-        var user = {
-            userName: "API",
-            address: "Number 2"
+    app.post("/api/planes", function(req, res) {
+        if (planes.length <5) {
+            planes.push(req.body);
+            res.json(true);
         }
-
-        res.json(user);
+        else {
+            console.log("this is the else");
+        }
     });
 
-}
+    app.post("/api/clear", function() {
+        planes=[];
+
+        console.log(planes);
+    });
+};

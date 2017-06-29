@@ -1,27 +1,20 @@
-module.exports = function (app) {
+var path = require("path");
 
-    var path = require("path");
+module.exports = function(app) {
 
-    app.get("/", function (req, res) {
 
-        res.sendFile(path.join(__dirname + "/../public/home.html"));
+    app.get("/home", function(req, res) {
+        res.sendFile(path.join(__dirname, "/../public/home.html"));
     });
 
-    app.get("api", function (req, res) {
-
-        var user = {
-            firstName: "Bill",
-            lastName: "Bob",
-            age: 5
-        }
-
-        res.json(user);
+    app.get("/survey", function(req, res) {
+        res.sendFile(path.join(__dirname, "/../public/survey.html"));
     });
 
-    app.post("/api/send", function (req, res) {
+    app.use(function (req, res) {
         console.log(req.body);
+        console.log("It Works!");
 
-        res.json("It Works!");
+        res.sendFile(path.join(__dirname, "/../public/home.html"));
     });
-
-}
+};

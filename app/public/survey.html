@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Survey Page</title>
+
+    <!-- link to CSS stylesheet -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
+    <!-- link to jQuery -->
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+
+    <!-- BootStrap CDN -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="row">
+
+        <!-- Top Panel -->
+        <!-- <div class="wrapper"> -->
+        <!-- Jumbotron Header -->
+        <div class="col-lg-10 col-lg-offset-1 centerfy">
+            <!-- Header and first text -->
+            <div class="jumbotron" style="background-image: url(assets/images/cloud.jpg);">
+                <div class="wrapper" id="wrapper">
+                    <h1>Plane Finder!</h1>
+                    <br>
+                    <h2>Find your perfect plane now!</h2>
+                    <br>
+                    <a href="/home"><button class="button"><span id="startBtn"><li>HomePage</li></span></button></a>
+                </div>
+            </div>
+            <!--</div> -->
+
+            <!-- First row: 2 columns under-->
+            <div id="container2" style="background: transparent;">
+                <div class="row">
+                    <div class="panel panel-default" style="background: transparent;">
+                        <div class="panel-body" class="background-color: transparent;">
+                            <!-- First column with picture that changes -->
+                            <div class="col-lg-6">
+                                <div class="panel-body" style="background: transparent;">
+
+                                    <a href="assets/images/mooney2.jpeg" class="thumbnail" style="background: transparent;">
+                                        <img src="assets/images/mooney2.jpeg" alt="Mooney" id="planeImage">insert text here</a>
+
+                                </div>
+                            </div>
+                            <!-- Second column with input and counters -->
+                            <div class="col-lg-6">
+                                <div class="panel panel-default" style="background: transparent;">
+                                    <div class="panel-body">
+                                        <div class="panel2"  style="background: transparent;>
+                                        <div class="row">
+                                        <div class="col-xs-12 col-md-12">
+
+                                            <h2>How fast do you like to go?</h2>
+                                            <br>
+                                            <ol>
+                                                <button class="button"><span id="fast"><li>Really Fast</li></span></button>
+                                                <button class="button"><span id="slow"><li>Slow</li></span></button>
+                                            </ol>
+                                            <br>
+                                            <br>
+
+                                            <h2>Are you old fashioned or Modern?</h2>
+                                            <br>
+                                            <ol>
+                                                <button class="button"><span id="old"><li>Old Fashioned</li></span></button>
+                                                <button class="button"><span id="modern"><li>Modern</li></span></button>
+                                            </ol>
+                                            <br>
+                                            <br>
+
+                                            <h2>Do you prefer propellors or turbines?</h2>
+                                            <br>
+                                            <ol>
+                                                <button class="button"><span id="props"><li>Propellers</li></span></button>
+                                                <button class="button"><span id="turbines"><li>Turbines</li></span></button>
+                                            </ol>
+                                            <br>
+                                            <br>
+
+                                            <h2>Do you like floats or wheels?</h2>
+                                            <br>
+                                            <ol>
+                                                <button class="button"><span id="floats"><li>Floats</li></span></button>
+                                                <button class="button"><span id="wheels"><li>Wheels</li></span></button>
+                                            </ol>
+                                            <br>
+                                            <br>
+
+                                            <h2>How many passengers do you intend to take with you?</h2>
+                                            <br>
+                                            <ol>
+                                                <button class="button"><span id="two"><li>Two +</li></span></button>
+                                                <button class="button"><span id="four"><li>Four +</li></span></button>
+                                            </ol>
+                                            <br>
+                                            <br>
+
+                                            <h2>Calculator your Plane Propensity!</h2>
+                                            <button class="button"><span id="calculateBtn">Calculate!</span></button>
+                                            <br>
+                                            <br>
+
+                                            <h2>Reset and start over!</h2>
+                                            <button class="button button1"><span id="resetBtn">Reset</span></button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End container -->
+<script>
+
+    var run = function() {
+
+        var fast = 0;
+        var slow = 0;
+        var old = 0;
+        var contemp = 0;
+        var props = 0;
+        var turbines = 0;
+        var floats = 0;
+        var wheels = 0;
+        var two = 0;
+        var four = 0;
+
+        $("#fast").on("click", function (event) {
+            event.preventDefault();
+
+            //userCount += 4;
+            //console.log(userCount);
+            fast = 1;
+            console.log(fast);
+        });
+
+        $("#slow").on("click", function (event) {
+            event.preventDefault();
+
+            //userCount += 1;
+            //console.log(userCount);
+            slow = 1;
+        });
+
+        $("#old").on("click", function (event) {
+            event.preventDefault();
+
+            //userCount += 1;
+            //console.log(userCount);
+            old = 1;
+        });
+
+        $("#modern").on("click", function (event) {
+            event.preventDefault();
+
+            //userCount += 4;
+            //console.log(userCount);
+            contemp = 1;
+        });
+
+        $("#props").on("click", function (event) {
+            event.preventDefault();
+
+            //userCount += 1;
+            //console.log(userCount);
+            props = 1;
+        });
+
+        $("#turbines").on("click", function (event) {
+            event.preventDefault();
+
+            //userCount += 4;
+            //console.log(userCount);
+            turbines = 1;
+        });
+
+        $("#floats").on("click", function (event) {
+            event.preventDefault();
+
+            //userCount += 1;
+            //console.log(userCount);
+            floats = 1;
+        });
+
+        $("#wheels").on("click", function (event) {
+            event.preventDefault();
+
+            //userCount += 4;
+            //console.log(userCount);
+            wheels = 1;
+
+        });
+
+        $("#two").on("click", function (event) {
+            event.preventDefault();
+
+            //userCount += 1;
+            //console.log(userCount);
+            two = 1;
+        });
+
+        $("#four").on("click", function (event) {
+            event.preventDefault();
+
+            //userCount += 4;
+            //console.log(userCount);
+            four = 1;
+        });
+
+        $("#calculateBtn").on("click", function(event) {
+            event.preventDefault();
+
+            console.log("calculate");
+            if (fast === 1 && modern === 1) {
+                console.log("you like fast new planes!");
+                $('#planeImage').attr('src', 'assets/images/fastNew.jpeg');
+
+            } else if (fast === 1 && props === 1) {
+                console.log("you like fast prop planes");
+                $('#planeImage').attr('src', 'assets/images/fastProp.jpeg');
+
+            }  else if (fast === 1 && turbines === 1 && four === 1) {
+                console.log("you like fast turbine cargo planes");
+                $('#planeImage').attr('src', 'assets/images/fastCargo.jpeg');
+
+            }  else if (fast === 1 && turbines === 1) {
+                console.log("you like fast turbine planes");
+                $('#planeImage').attr('src', 'assets/images/fastTurbine.jpeg');
+
+            }   else if (fast === 1 && prop === 1 && floats === 1) {
+                console.log("you like fast prop float planes");
+                $('#planeImage').attr('src', 'assets/images/fastPropFloat.jpeg');
+
+            } else if (slow === 1 && props === 1 && floats === 1) {
+                console.log("you like slow prop float planes");
+                $('#planeImage').attr('src', 'assets/images/slowPropFloat.jpeg');
+
+            } else if (slow === 1 && props === 1 && Wheels === 1) {
+                console.log("you like slow prop wheeled planes");
+                $('#planeImage').attr('src', 'assets/images/slowPropWheels.jpeg');
+
+            } else if (slow === 1 && four === 1) {
+                console.log("you like cargo airplanes");
+                $('#planeImage').attr('src', 'assets/images/slowCargo.jpeg');
+
+            } else if (slow === 1 && turbine === 1) {
+                console.log("you like slow turbine planes");
+                $('#planeImage').attr('src', 'assets/images/slowTurbine.jpeg');
+
+            }
+        });
+
+
+        $("#resetBtn").on("click", function(event) {
+            event.preventDefault();
+
+            $('#planeImage').attr('src','assets/images/mooney.jpeg');
+            fast = 0;
+            slow = 0;
+            old = 0;
+            modern = 0;
+            props = 0;
+            turbines = 0;
+            two = 0;
+            four = 0;
+            console.log("reset");
+
+        });
+    };
+    run();
+
+
+
+
+    //fast, slow, old, new, props, turbines, floats, wheels, two, four
+</script>
+</body>
+</html>
