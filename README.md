@@ -7,7 +7,12 @@ Week 7 Thursday Assignment
 - npm install require --save
 - npm install path --save
 
+# Purpose:
+
 # Usage:
+            
+# Future Development:
 
-- Please use this link to locate the file: https://mighty-everglades-61844.herokuapp.com/
-
+# Author:
+- Matt Triantafellu
+- UCF Coding BootCamp Summer 2017
